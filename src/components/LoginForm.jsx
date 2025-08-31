@@ -29,10 +29,10 @@ export function LoginForm({ onLogin }) {
         return
       }
 
-      // Verifica se o usuário é um consultor
+      // --- CORREÇÃO APLICADA AQUI: Usando 'name' ---
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
-        .select('role, full_name, referral_code')
+        .select('role, name, referral_code') // Alterado de 'full_name' para 'name'
         .eq('id', data.user.id)
         .single()
 
@@ -114,4 +114,3 @@ export function LoginForm({ onLogin }) {
     </div>
   )
 }
-
