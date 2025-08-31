@@ -1,6 +1,9 @@
 import { supabase } from '@/lib/supabase'
-import ReferralLinkCard from './ReferralLinkCard'
-import ReferralStats from './ReferralStats'
+// --- CORREÇÃO APLICADA AQUI ---
+// Adicionamos chaves {} para importar componentes com exportação nomeada.
+// Também padronizamos o caminho usando o alias '@'.
+import { ReferralLinkCard } from '@/components/ReferralLinkCard'
+import { ReferralStats } from '@/components/ReferralStats'
 
 export default function Dashboard({ session, profile }) {
 
@@ -21,8 +24,6 @@ export default function Dashboard({ session, profile }) {
         <div className="flex justify-between items-center mb-6">
           <div>
             <h1 className="text-2xl font-bold">Dashboard</h1>
-            {/* --- CORREÇÃO APLICADA AQUI --- */}
-            {/* Exibe o nome a partir de 'profile.name'. */}
             <p>Bem-vindo, {profile.name}!</p>
             <p className="text-sm text-gray-400">Seu e-mail: {session.user.email}</p>
           </div>
